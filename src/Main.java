@@ -75,6 +75,28 @@ public class Main {
                     + " | stateUnchanged=" + stateUnchanged);
         }
 
-        System.out.println("SUMMARY: " + passed + "/5 PASS");
+        Remote basicProjector = new BasicRemote("R6", new ProjectorDevice());
+        String result6 = basicProjector.execute();
+        String expected6 = "PROJECTOR | power=ON | volume=30";
+
+        if (result6.equals(expected6)) {
+            passed++;
+            System.out.println("T6 PASS | BasicRemote + ProjectorDevice | result=" + result6);
+        } else {
+            System.out.println("T6 FAIL | expected=" + expected6 + " | actual=" + result6);
+        }
+
+        Remote quietProjector = new QuietRemote("R7", new ProjectorDevice());
+        String result7 = quietProjector.execute();
+        String expected7 = "PROJECTOR | power=ON | volume=5";
+
+        if (result7.equals(expected7)) {
+            passed++;
+            System.out.println("T7 PASS | QuietRemote + ProjectorDevice | result=" + result7);
+        } else {
+            System.out.println("T7 FAIL | expected=" + expected7 + " | actual=" + result7);
+        }
+
+        System.out.println("SUMMARY: " + passed + "/7 PASS");
     }
 }
