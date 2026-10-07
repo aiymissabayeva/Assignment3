@@ -62,17 +62,14 @@ public class Main {
         boolean sameObject = originalReference == remote;
         boolean stateUnchanged = idBefore.equals(remote.getId());
         boolean correctSwitch =
-                before.equals("TV | power=ON | volume=30")
-                        && after.equals("RADIO | power=ON | volume=30");
+                before.equals("TV | power=ON | volume=30") && after.equals("RADIO | power=ON | volume=30");
 
         if (sameObject && stateUnchanged && correctSwitch) {
             passed++;
-            System.out.println("T5 PASS | sameObject=" + sameObject
-                    + " | stateUnchanged=" + stateUnchanged);
+            System.out.println("T5 PASS | sameObject=" + sameObject + " | stateUnchanged=" + stateUnchanged);
             System.out.println(" before=" + before + " | after=" + after);
         } else {
-            System.out.println("T5 FAIL | sameObject=" + sameObject
-                    + " | stateUnchanged=" + stateUnchanged);
+            System.out.println("T5 FAIL | sameObject=" + sameObject + " | stateUnchanged=" + stateUnchanged);
         }
 
         Remote basicProjector = new BasicRemote("R6", new ProjectorDevice());
